@@ -24,5 +24,26 @@ let crearArchivo = (base) => {
     });
 }
 
+let listarTabla = async(base, limite = 10) => {
+    let data = '';
 
-module.exports = { crearArchivo };
+    for (let index = 0; index <= limite; index++) {
+        console.log(index);
+        data += `${base}*${index}=${base*index}\n`;
+    }
+    console.log(data);
+
+    if (data = '') {
+        console.log('error');
+
+        throw new Error('ocurrio un error');
+    } else {
+
+        return 'lista cargada';
+
+    }
+
+}
+
+
+module.exports = { crearArchivo, listarTabla };
