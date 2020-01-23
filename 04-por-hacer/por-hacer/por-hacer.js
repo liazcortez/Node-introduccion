@@ -14,8 +14,18 @@ const crear = (descripcion) => {
     guardarDB();
     return porHacer;
 }
+
+const getListado = () => {
+    cargarDB();
+
+    return listadoPorHacer;
+}
 const cargarDB = () => {
-    listadoPorHacer = require('../db/data');
+    try {
+        listadoPorHacer = require('../db/data');
+    } catch (error) {
+        listadoPorHacer = [];
+    }
 }
 const guardarDB = () => {
     let data = JSON.stringify(listadoPorHacer);
@@ -27,5 +37,6 @@ const guardarDB = () => {
 }
 
 module.exports = {
-    crear
+    crear,
+    getListado
 };
