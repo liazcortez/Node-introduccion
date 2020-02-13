@@ -1,11 +1,11 @@
 const axios = require('axios');
 
+const getClima = async(lat, lng) => {
 
-const getClima = async(lat, lon) => {
+    const resp = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${ lat }&lon=${ lng }&appid=32f843d833c38373032f825c4a92418a&units=metric`)
 
-    const resp = await axios.get(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=2e1357654ccff006213312a3d8281668`);
+    return resp.data.main.temp;
 
-    return resp;
 }
 
 
